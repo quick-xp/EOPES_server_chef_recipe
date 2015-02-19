@@ -46,18 +46,26 @@ end
 ##################
 
 template 'nginx.conf' do
-  path   "#{node['nginx']['dir']}/nginx.conf"
-  source 'nginx.conf.erb'
-  owner  'root'
-  group  'root'
-  mode   '0644'
-  notifies :reload, 'service[nginx]'
+	path   "#{node['nginx']['dir']}/nginx.conf"
+	source 'nginx.conf.erb'
+	owner  'root'
+	group  'root'
+	mode   '0644'
+	notifies :reload, 'service[nginx]'
 end
 
-template "#{node['nginx']['dir']}/sites-available/default" do
-  source 'default-site.erb'
-  owner  'root'
-  group  'root'
-  mode   '0644'
-  notifies :reload, 'service[nginx]'
+template "#{node['nginx']['dir']}/sites-available/rails_app" do
+	source 'rails-site.erb'
+	owner  'root'
+	group  'root'
+	mode   '0644'
+	notifies :reload, 'service[nginx]'
 end
+
+#simbol link
+link "#{node['nginx']['dir']}/sites-available/rails_app" do
+	to "/#{node['nginx']['dir']}/sites-enabled/rails_app"
+	link_type :symbolic
+end
+
+
