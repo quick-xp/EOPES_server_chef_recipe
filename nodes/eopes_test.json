@@ -1,0 +1,22 @@
+{
+	"run_list":["base-git",
+		"server-init",
+		"recipe[rvm::system]",
+		"recipe[nginx]
+			],
+		"server-init":{
+			"user" : "chato",
+			"group" : "staff"
+		},
+		"rvm":{
+			"user" : "chato",
+			"default_ruby" : "ruby-2.0.0-p195",
+			"rubies":  [ "ruby-2.0.0-p195" ]
+		},
+		"nginx":{
+			"dir" : "/etc/nginx",
+			"log_dir" : "/var/log/nginx",
+			"user" : "nginx",
+			"application" : "eopes"
+		}
+}
