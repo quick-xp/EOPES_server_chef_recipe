@@ -2,7 +2,7 @@
 	"run_list":["base-git",
 		"server-init",
 		"recipe[rvm::system]",
-		"recipe[nginx]
+		"recipe[nginx]"
 			],
 		"server-init":{
 			"user" : "chato",
