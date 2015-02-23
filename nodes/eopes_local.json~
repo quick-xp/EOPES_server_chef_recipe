@@ -1,6 +1,6 @@
 {
-	"run_list":["recipe[base-git]",
-		"recipe[server-init]",
+	"run_list":["base-git",
+		"server-init",
 		"recipe[rvm::system]",
 		"recipe[nginx]"
 			],
