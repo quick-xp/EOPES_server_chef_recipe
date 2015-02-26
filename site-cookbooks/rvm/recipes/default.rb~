@@ -1,0 +1,25 @@
+#
+# Cookbook Name:: rvm
+# Recipe:: default
+#
+
+############
+#RVM Install
+############
+#最初の一回しか実行できません。
+#2回目以降は手動でコマンドを実行してください
+bash "rvm install" do
+	not_if { File.exists?("/root/chef_install/rvm")}
+	user "root"
+	code <<-EOS
+	command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+	curl -L https://get.rvm.io | bash -s stable --ruby
+	source /etc/profile.d/rvm.sh
+	echo "source /etc/profile.d/rvm.sh" >> /root/.bashrc
+	rvm install ruby-2.0.0-p353
+	rvm --default use 2.0.0 
+	touch /root/chef_install/rvm
+	EOS
+end
+
+
