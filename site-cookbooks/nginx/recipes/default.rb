@@ -63,9 +63,11 @@ template "#{node['nginx']['dir']}/sites-available/rails_app" do
 end
 
 #simbol link
-link "#{node['nginx']['dir']}/sites-available/rails_app" do
-	to "/#{node['nginx']['dir']}/sites-enabled/rails_app"
+link "#{node['nginx']['dir']}/sites-enabled/rails_app" do
+	not_if "test -L /#{node['nginx']['dir']}/sites-enabled/rails_app" 
+	to "/#{node['nginx']['dir']}/sites-available/rails_app"
 	link_type :symbolic
+	notifies :reload, 'service[nginx]'
 end
 
 

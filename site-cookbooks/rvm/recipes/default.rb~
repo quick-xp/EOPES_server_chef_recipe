@@ -3,6 +3,16 @@
 # Recipe:: default
 #
 
+###########
+#実行完了用判定Directory
+###########
+directory "/root/chef_install" do
+	owner "root"
+	group "root"
+	mode 00744
+	action :create
+end
+
 ############
 #RVM Install
 ############
