@@ -1,0 +1,15 @@
+{
+	"run_list":["recipe[base-git]",
+		"recipe[server-init]",
+		"recipe[mysql::server]"
+			],
+		"server-init":{
+			"user" : "chato",
+			"group" : "staff"
+		},
+		"mysql":{
+			"version":"5.6",
+			"port":"3306",
+			"server_root_password":"root"
+		}
+}
