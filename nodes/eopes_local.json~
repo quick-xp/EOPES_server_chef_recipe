@@ -1,7 +1,7 @@
 {
-	"run_list":["base-git",
-		"server-init",
-		"recipe[rvm::system]",
+	"run_list":["recipe[base-git]",
+		"recipe[server-init]",
+		#"recipe[rvm::system]",
 		"recipe[nginx]"
 			],
 		"server-init":{
