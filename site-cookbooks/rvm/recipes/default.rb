@@ -27,7 +27,7 @@ bash "rvm install" do
 	source /etc/profile.d/rvm.sh
 	echo "source /etc/profile.d/rvm.sh" >> /root/.bashrc
 	rvm install ruby-2.0.0-p353
-	rvm --default use 2.0.0 
+	rvm --default use ruby-2.0.0-p353 
 	touch /root/chef_install/rvm
 	EOS
 end
