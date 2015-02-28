@@ -1,4 +1,4 @@
 site :opscode
 cookbook 'git'
-cookbook 'mysql'
+cookbook 'mysql',"~> 5.3.6"
 
