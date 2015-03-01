@@ -4,6 +4,24 @@
 #
 # Copyright 2015, r_nishio
 #
+
+###########
+#GROUP AND USER CREATE
+###########
+user 'nginx' do
+	shell '/bin/bash'
+	password nil
+	action   [:create]
+end
+
+group 'nginx' do
+	action [:modify]
+	members ['nginx']
+end
+
+################
+#Install nginx
+################
 package "nginx" do
 	action :install
 end
