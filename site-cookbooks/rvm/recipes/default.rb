@@ -32,4 +32,6 @@ bash "rvm install" do
 	EOS
 end
 
+# install for mysql 
+package 'libmysqld-dev'
 

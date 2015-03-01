@@ -1,7 +1,8 @@
 {
 	"run_list":["recipe[base-git]",
 		"recipe[server-init]",
-		"recipe[nginx]"
+		"recipe[nginx]",
+		"recipe[rvm]"
 			],
 		"server-init":{
 			"user" : "chato",

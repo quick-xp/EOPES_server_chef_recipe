@@ -30,7 +30,7 @@ server {
     proxy_temp_file_write_size 64k;
   }
 
-  location ~ ^/(images|javascripts|stylesheets|system)/  {
+  location ~ ^/(images|javascripts|stylesheets|system|assets)/  {
     root /var/www/<%= node['nginx']['application'] %>/current/public;
     expires max;
     break;
