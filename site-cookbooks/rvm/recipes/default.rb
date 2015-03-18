@@ -35,3 +35,5 @@ end
 # install for mysql 
 package 'libmysqld-dev'
 
+# mysql client
+package 'mysql-client'
